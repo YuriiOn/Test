@@ -1,0 +1,28 @@
+{
+  "topics": [
+    "AI",
+    "AI engineering",
+    "agent memory",
+    "agent engineering",
+    "game theory",
+    "chaos theory",
+    "experimentation",
+    "A/B testing",
+    "crypto trading",
+    "time series processing",
+    "machine learning",
+    "data science"
+  ],
+  "github": {
+    "repos_per_topic": 12,
+    "discovery_repos_per_topic": 6,
+    "min_stars_for_discovery": 20,
+    "extra_repos": []
+  },
+  "youtube": {
+    "channels_per_topic": 4,
+    "videos_per_channel": 5,
+    "video_lookback_days": 14,
+    "extra_channels": []
+  }
+}

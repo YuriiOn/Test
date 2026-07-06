@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Scout — Relationship Map</title>
+<!-- vis-network via CDN. The page must be served over HTTP (python run.py serve),
+     not opened as file://, so that fetch('graph_data.json') works. -->
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+<style>
+  :root {
+    --bg: #14141c; --panel: #1d1d29; --border: #30304a;
+    --text: #e8e8f0; --muted: #9a9ab0; --accent: #7c6ff0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    height: 100vh; display: flex; flex-direction: column;
+  }
+  header {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--border);
+  }
+  header h1 { font-size: 16px; margin: 0; font-weight: 600; }
+  header .week { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 6px; }
+  .tabs button {
+    background: transparent; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px;
+  }
+  .tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  #search {
+    background: var(--bg); color: var(--text); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 10px; font-size: 13px; width: 220px;
+  }
+  label.toggle { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  #legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+  #legend span::before {
+    content: ""; display: inline-block; width: 10px; height: 10px;
+    border-radius: 50%; margin-right: 5px; background: var(--c);
+  }
+  #network { flex: 1; }
+  #info {
+    position: absolute; right: 16px; top: 64px; width: 300px; display: none;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; font-size: 13px; line-height: 1.5; white-space: pre-wrap;
+    box-shadow: 0 6px 24px rgba(0,0,0,.4); z-index: 10;
+  }
+  #info a { color: var(--accent); }
+  #status {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    color: var(--muted); font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tech Scout</h1>
+  <span class="week" id="week"></span>
+  <div class="tabs">
+    <button id="tab-github" class="active">GitHub map</button>
+    <button id="tab-youtube">YouTube map</button>
+  </div>
+  <input id="search" type="search" placeholder="Search nodes…">
+  <label class="toggle"><input type="checkbox" id="physics" checked> physics</label>
+  <div id="legend"></div>
+</header>
+<div id="network"></div>
+<div id="info"></div>
+<div id="status">Loading graph_data.json…</div>
+
+<script>
+"use strict";
+
+const LEGENDS = {
+  github: [
+    ["#7c6ff0", "topic"], ["#4ea8de", "repo"],
+    ["#f4845f", "hot (+50★/wk)"], ["#43c59e", "new this week"],
+  ],
+  youtube: [
+    ["#7c6ff0", "topic"], ["#e5484d", "channel"],
+    ["#f2c14e", "video"], ["#9aa0a6", "repo mention"],
+  ],
+};
+
+const OPTIONS = {
+  nodes: {
+    font: { color: "#e8e8f0", size: 12 },
+    borderWidth: 1,
+  },
+  edges: { smooth: { type: "continuous" }, width: 1 },
+  physics: {
+    solver: "forceAtlas2Based",
+    forceAtlas2Based: { gravitationalConstant: -60, springLength: 110, damping: 0.6 },
+    stabilization: { iterations: 220 },
+  },
+  interaction: { hover: true, tooltipDelay: 120 },
+};
+
+let data = null;
+let network = null;
+let nodesDS = null;
+let current = "github";
+
+async function load() {
+  const status = document.getElementById("status");
+  try {
+    const resp = await fetch("graph_data.json", { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    data = await resp.json();
+  } catch (err) {
+    status.textContent =
+      "Could not load graph_data.json — run the pipeline first, and serve this " +
+      "folder over HTTP (python run.py serve). " + err;
+    return;
+  }
+  status.remove();
+  document.getElementById("week").textContent = "week " + (data.week || "?");
+  render("github");
+}
+
+function render(section) {
+  current = section;
+  document.getElementById("tab-github").classList.toggle("active", section === "github");
+  document.getElementById("tab-youtube").classList.toggle("active", section === "youtube");
+
+  const legend = document.getElementById("legend");
+  legend.innerHTML = LEGENDS[section]
+    .map(([c, label]) => `<span style="--c:${c}">${label}</span>`).join("");
+
+  const g = data[section] || { nodes: [], edges: [] };
+  nodesDS = new vis.DataSet(g.nodes);
+  const edgesDS = new vis.DataSet(g.edges.map((e, i) => ({ id: "e" + i, ...e })));
+
+  if (network) network.destroy();
+  network = new vis.Network(
+    document.getElementById("network"), { nodes: nodesDS, edges: edgesDS }, OPTIONS
+  );
+  network.on("click", onClick);
+  network.on("doubleClick", onDoubleClick);
+  document.getElementById("physics").checked = true;
+  document.getElementById("search").value = "";
+}
+
+function onClick(params) {
+  const info = document.getElementById("info");
+  if (!params.nodes.length) { info.style.display = "none"; return; }
+  const node = nodesDS.get(params.nodes[0]);
+  info.innerHTML = escapeHtml(node.title || node.label) +
+    (node.url ? `\n<a href="${node.url}" target="_blank" rel="noopener">open ↗</a>` : "");
+  info.style.display = "block";
+}
+
+function onDoubleClick(params) {
+  if (!params.nodes.length) return;
+  const node = nodesDS.get(params.nodes[0]);
+  if (node.url) window.open(node.url, "_blank", "noopener");
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+document.getElementById("tab-github").onclick = () => render("github");
+document.getElementById("tab-youtube").onclick = () => render("youtube");
+
+document.getElementById("physics").onchange = (e) => {
+  if (network) network.setOptions({ physics: { enabled: e.target.checked } });
+};
+
+document.getElementById("search").oninput = (e) => {
+  if (!network || !nodesDS) return;
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) { network.unselectAll(); return; }
+  const hits = nodesDS.get({
+    filter: (n) => (n.label || "").toLowerCase().includes(q),
+  }).map((n) => n.id);
+  network.selectNodes(hits);
+  if (hits.length) network.focus(hits[0], { scale: 1.1, animation: true });
+};
+
+load();
+</script>
+</body>
+</html>

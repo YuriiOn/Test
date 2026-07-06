@@ -1,0 +1,45 @@
+# Optional: run the weekly pipeline on GitHub Actions instead of cron.
+#
+# Setup:
+#   1. Add repository secrets: YOUTUBE_API_KEY, ANTHROPIC_API_KEY
+#      (GITHUB_TOKEN is provided automatically by Actions).
+#   2. The workflow commits the updated database and outputs back to the
+#      repo so the historical state persists between runs.
+
+name: Weekly Tech Scout
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch: {}    # manual trigger for the first (baseline) run
+
+permissions:
+  contents: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python run.py weekly
+
+      - name: Commit state and outputs
+        run: |
+          git config user.name "techscout-bot"
+          git config user.email "techscout-bot@users.noreply.github.com"
+          git add -f data/techscout.db output/
+          git diff --cached --quiet || git commit -m "Weekly scout run $(date -u +%F)"
+          git push
