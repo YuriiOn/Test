@@ -1,0 +1,10 @@
+# Tech Scout — weekly pipeline via cron
+#
+# Install with:
+#   crontab -e
+# then paste the line below, adjusting the project path and python binary.
+#
+# Runs every Monday at 06:00. Logs are appended to data/cron.log.
+# `flock` prevents overlapping runs if a week's run takes unusually long.
+
+0 6 * * 1  cd /path/to/Test && flock -n /tmp/techscout.lock ./.venv/bin/python run.py weekly >> data/cron.log 2>&1

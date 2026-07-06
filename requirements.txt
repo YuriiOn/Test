@@ -1,0 +1,12 @@
+# Core
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# LLM analysis (Anthropic API)
+anthropic>=0.40.0
+
+# YouTube transcripts (optional but recommended)
+youtube-transcript-api>=0.6.2
+
+# Scheduler (only needed if you use scheduler.py instead of cron)
+schedule>=1.2.0
