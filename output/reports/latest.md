@@ -1,55 +1,55 @@
-# Tech Scout — Weekly Report 2026-W46
+# Tech Scout — Weekly Report 2026-W47
 
-_Generated 2026-11-09 14:59 UTC · analysis source: **heuristic** · compared against: **2026-W45**_
+_Generated 2026-11-16 14:37 UTC · analysis source: **heuristic** · compared against: **2026-W46**_
 
-Tracked this week: **192 repositories**, **0 channels**, **0 videos** across **12 topics**.
+Tracked this week: **193 repositories**, **0 channels**, **0 videos** across **12 topics**.
 
 ## Weekly Summary Review
 
-Heuristic analysis for 2026-W46 (no LLM key configured). Tracked 192 repositories and 0 channels across 12 topics. Compared against 2026-W45: see ecosystem shifts below.
+Heuristic analysis for 2026-W47 (no LLM key configured). Tracked 193 repositories and 0 channels across 12 topics. Compared against 2026-W46: see ecosystem shifts below.
 
 ## Ecosystem Shifts
 
-- morluto/rea gained 24,440 stars this week (AI).
-- deepseek-ai/deepseek-harness gained 8,037 stars this week (AI).
-- DietrichGebert/ponytail gained 4,750 stars this week (AI).
-- Zagitta/gpu-unlock gained 3,949 stars this week (AI).
-- obra/superpowers gained 3,891 stars this week (AI).
+- morluto/rea gained 17,497 stars this week (AI).
+- deepseek-ai/deepseek-harness gained 4,933 stars this week (AI).
+- DietrichGebert/ponytail gained 4,525 stars this week (AI).
+- tashfeenahmed/freellmapi gained 3,690 stars this week (experimentation).
+- obra/superpowers gained 3,479 stars this week (AI).
 
 ## Actual Overview
 
 ### A/B testing
-15 tracked repos, 0 recent videos. Leader: fluxcd/flagger (5,429★).
+15 tracked repos, 0 recent videos. Leader: fluxcd/flagger (5,434★).
 
 ### AI
-17 tracked repos, 0 recent videos. Leader: morluto/rea (445,844★).
+18 tracked repos, 0 recent videos. Leader: morluto/rea (463,341★).
 
 ### AI engineering
-18 tracked repos, 0 recent videos. Leader: rohitg00/ai-engineering-from-scratch (78,035★).
+18 tracked repos, 0 recent videos. Leader: rohitg00/ai-engineering-from-scratch (79,119★).
 
 ### agent engineering
-18 tracked repos, 0 recent videos. Leader: langchain-ai/langchain (149,262★).
+18 tracked repos, 0 recent videos. Leader: langchain-ai/langchain (149,647★).
 
 ### agent memory
-17 tracked repos, 0 recent videos. Leader: vectorize-io/hindsight (60,040★).
+17 tracked repos, 0 recent videos. Leader: vectorize-io/hindsight (61,352★).
 
 ### chaos theory
 12 tracked repos, 0 recent videos. Leader: jonnyhyman/Chaos (1,968★).
 
 ### crypto trading
-17 tracked repos, 0 recent videos. Leader: freqtrade/freqtrade (56,687★).
+17 tracked repos, 0 recent videos. Leader: freqtrade/freqtrade (56,945★).
 
 ### data science
-18 tracked repos, 0 recent videos. Leader: jakevdp/PythonDataScienceHandbook (50,408★).
+18 tracked repos, 0 recent videos. Leader: jakevdp/PythonDataScienceHandbook (50,450★).
 
 ### experimentation
-18 tracked repos, 0 recent videos. Leader: tashfeenahmed/freellmapi (49,548★).
+18 tracked repos, 0 recent videos. Leader: tashfeenahmed/freellmapi (53,238★).
 
 ### game theory
-12 tracked repos, 0 recent videos. Leader: ncase/trust (6,341★).
+12 tracked repos, 0 recent videos. Leader: ncase/trust (6,346★).
 
 ### machine learning
-18 tracked repos, 0 recent videos. Leader: tensorflow/tensorflow (201,414★).
+18 tracked repos, 0 recent videos. Leader: tensorflow/tensorflow (201,571★).
 
 ### time series processing
 12 tracked repos, 0 recent videos. Leader: jldz9/InSARHub (212★).
@@ -58,62 +58,66 @@ Heuristic analysis for 2026-W46 (no LLM key configured). Tracked 192 repositorie
 
 | Project | Topic | Why it matters |
 |---|---|---|
-| [morluto/rea](https://github.com/morluto/rea) | AI | 445,844 stars, 110,048 forks |
-| [openclaw/openclaw](https://github.com/openclaw/openclaw) | AI | 394,231 stars, 82,851 forks |
-| [obra/superpowers](https://github.com/obra/superpowers) | AI | 314,901 stars, 28,016 forks |
-| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | 277,253 stars, 33,980 forks |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | 261,979 stars, 58,320 forks |
-| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | 231,196 stars, 22,989 forks |
-| [n8n-io/n8n](https://github.com/n8n-io/n8n) | AI | 209,910 stars, 61,418 forks |
-| [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) | machine learning | 201,414 stars, 78,209 forks |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | 200,009 stars, 10,523 forks |
-| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | AI | 187,966 stars, 45,890 forks |
+| [morluto/rea](https://github.com/morluto/rea) | AI | 463,341 stars, 113,412 forks |
+| [openclaw/openclaw](https://github.com/openclaw/openclaw) | AI | 394,571 stars, 82,909 forks |
+| [obra/superpowers](https://github.com/obra/superpowers) | AI | 318,380 stars, 28,379 forks |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | 282,186 stars, 34,933 forks |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | 263,813 stars, 59,486 forks |
+| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | 233,644 stars, 23,232 forks |
+| [n8n-io/n8n](https://github.com/n8n-io/n8n) | AI | 210,607 stars, 61,520 forks |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | 202,236 stars, 10,601 forks |
+| [tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) | machine learning | 201,571 stars, 77,955 forks |
+| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | AI | 191,885 stars, 10,759 forks |
 
 ## New Projects
 
 | Project | Topic | Why it matters |
 |---|---|---|
-| [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) | AI | First seen this week with 21,645 stars |
-| [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | AI | First seen this week with 13,946 stars |
-| [Barry81-666/kaggle-portfolio](https://github.com/Barry81-666/kaggle-portfolio) | data science | First seen this week with 96 stars |
-| [Stratumgreawning7/MemeCoin-Sniper-Bot](https://github.com/Stratumgreawning7/MemeCoin-Sniper-Bot) | crypto trading | First seen this week with 53 stars |
-| [vtno/skills](https://github.com/vtno/skills) | agent engineering | First seen this week with 43 stars |
-| [zrrt/TrollAgent](https://github.com/zrrt/TrollAgent) | experimentation | First seen this week with 36 stars |
+| [heydamir/unslop](https://github.com/heydamir/unslop) | AI | First seen this week with 17,094 stars |
+| [Edge0-AI/Edge0](https://github.com/Edge0-AI/Edge0) | AI | First seen this week with 11,925 stars |
+| [CyberPunkMetalHead/gateio-crypto-trading-bot-binance-announcements-new-coins](https://github.com/CyberPunkMetalHead/gateio-crypto-trading-bot-binance-announcements-new-coins) | crypto trading | First seen this week with 1,236 stars |
+| [Glen-Web-App/best-agent-memory-mcp](https://github.com/Glen-Web-App/best-agent-memory-mcp) | agent memory | First seen this week with 240 stars |
+| [ngophatneknha/ai-engineering-hub](https://github.com/ngophatneknha/ai-engineering-hub) | AI engineering | First seen this week with 186 stars |
+| [tradoor-terminal/tradoor](https://github.com/tradoor-terminal/tradoor) | crypto trading | First seen this week with 171 stars |
+| [guruvaidev/avaloka](https://github.com/guruvaidev/avaloka) | data science | First seen this week with 139 stars |
+| [stephanes-dev/ModelElohim](https://github.com/stephanes-dev/ModelElohim) | machine learning | First seen this week with 118 stars |
+| [bagusprts/RoughGlue](https://github.com/bagusprts/RoughGlue) | machine learning | First seen this week with 115 stars |
+| [makoshan/vibehw-stack](https://github.com/makoshan/vibehw-stack) | agent engineering | First seen this week with 25 stars |
 
 ## Promising Projects
 
 | Project | Topic | Why it matters |
 |---|---|---|
-| [morluto/rea](https://github.com/morluto/rea) | AI | +24,440 stars this week |
-| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | +8,037 stars this week |
-| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | AI | +4,750 stars this week |
-| [Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock) | AI | +3,949 stars this week |
-| [obra/superpowers](https://github.com/obra/superpowers) | AI | +3,891 stars this week |
-| [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | experimentation | +3,419 stars this week |
-| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | +2,834 stars this week |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | +2,274 stars this week |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | +2,148 stars this week |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | agent memory | +2,075 stars this week |
+| [morluto/rea](https://github.com/morluto/rea) | AI | +17,497 stars this week |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | +4,933 stars this week |
+| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | AI | +4,525 stars this week |
+| [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | experimentation | +3,690 stars this week |
+| [obra/superpowers](https://github.com/obra/superpowers) | AI | +3,479 stars this week |
+| [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | AI | +3,158 stars this week |
+| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | +2,448 stars this week |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | +2,227 stars this week |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | +1,834 stars this week |
+| [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) | AI | +1,809 stars this week |
 
 ## Biggest Movers (raw data)
 
 | Repo | Topic | ★ now | ★ Δ week | Commits this week |
 |---|---|---|---|---|
-| [morluto/rea](https://github.com/morluto/rea) | AI | 445,844 | +24,440 | 20 |
-| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | 277,253 | +8,037 | 20 |
-| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | AI | 187,360 | +4,750 | 0 |
-| [Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock) | AI | 18,304 | +3,949 | 0 |
-| [obra/superpowers](https://github.com/obra/superpowers) | AI | 314,901 | +3,891 | 1 |
-| [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | experimentation | 49,548 | +3,419 | 18 |
-| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | 231,196 | +2,834 | 0 |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | 261,979 | +2,274 | 20 |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | 200,009 | +2,148 | 20 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | agent memory | 60,040 | +2,075 | 20 |
-| [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | AI engineering | 78,035 | +1,689 | 20 |
-| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | AI | 167,441 | +1,398 | 9 |
-| [f/prompts.chat](https://github.com/f/prompts.chat) | AI | 176,683 | +1,080 | 20 |
-| [google/artemis](https://github.com/google/artemis) | AI | 17,085 | +883 | 0 |
-| [deepseek-ai/DeepInfer](https://github.com/deepseek-ai/DeepInfer) | AI | 25,729 | +739 | 1 |
+| [morluto/rea](https://github.com/morluto/rea) | AI | 463,341 | +17,497 | 20 |
+| [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | AI | 282,186 | +4,933 | 20 |
+| [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | AI | 191,885 | +4,525 | 0 |
+| [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | experimentation | 53,238 | +3,690 | 20 |
+| [obra/superpowers](https://github.com/obra/superpowers) | AI | 318,380 | +3,479 | 0 |
+| [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | AI | 17,104 | +3,158 | 7 |
+| [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | AI | 233,644 | +2,448 | 0 |
+| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | AI | 202,236 | +2,227 | 20 |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | AI | 263,813 | +1,834 | 20 |
+| [deepseek-ai/dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) | AI | 23,454 | +1,809 | 0 |
+| [Zagitta/gpu-unlock](https://github.com/Zagitta/gpu-unlock) | AI | 19,906 | +1,602 | 0 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | agent memory | 61,352 | +1,312 | 20 |
+| [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | AI | 168,720 | +1,279 | 0 |
+| [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | AI engineering | 79,119 | +1,084 | 20 |
+| [f/prompts.chat](https://github.com/f/prompts.chat) | AI | 177,634 | +951 | 20 |
 
 ---
 _Interactive relationship map: open `output/index.html` (serve the folder with `python run.py serve`)._
